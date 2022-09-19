@@ -91,3 +91,20 @@ Into the project directory call
 or - if you want to see more information -
 
     ./gradlew --info sendMail
+
+## Development
+
+- clone this repo
+- call ` ./gradlew publishToMavenLocal` to build and publish this 
+plugin into to local maven repository (`~/.m2/`).
+
+Into the project that uses this Plugin, change the `settings.gradle` file to:
+```gradle
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+```
+ Important ist the `mavenLocal()` part.
