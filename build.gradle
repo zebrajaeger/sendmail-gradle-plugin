@@ -39,7 +39,7 @@ pluginBundle {  // Removed in Gradle 8+
 
 gradlePlugin {
     plugins {
-        sendMailPlugin {
+        sendMail {
             id = 'sendMail'
             implementationClass = 'de.zebrajaeger.gradleplugin.SendMailPlugin'
             displayName = 'Send mails from gradle build'
