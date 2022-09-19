@@ -1,4 +1,4 @@
-package de.zebrajaeger;
+package de.zebrajaeger.gradleplugin;
 
 
 import lombok.Data;
@@ -9,6 +9,9 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * The mail specific part of the plugin configuration
+ */
 @Data
 public class Mail {
     public Mail() {

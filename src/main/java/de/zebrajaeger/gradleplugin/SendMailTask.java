@@ -1,4 +1,4 @@
-package de.zebrajaeger;
+package de.zebrajaeger.gradleplugin;
 
 import jakarta.activation.FileDataSource;
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
+/**
+ * Active plugin part
+ */
 public abstract class SendMailTask extends DefaultTask {
 
     public static final Logger LOG = LoggerFactory.getLogger(SendMailTask.class);

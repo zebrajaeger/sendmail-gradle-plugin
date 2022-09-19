@@ -1,4 +1,4 @@
-package de.zebrajaeger;
+package de.zebrajaeger.gradleplugin;
 
 import groovy.lang.Closure;
 import lombok.Getter;
@@ -12,6 +12,9 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Plugin configuration
+ */
 @Getter
 @ToString
 public class SendMailExtension {
@@ -42,6 +45,11 @@ public class SendMailExtension {
         return this;
     }
 
+    /**
+     * Validate the configuration
+     *
+     * @param log The logger to send error messages.
+     */
     public void validate(final Logger log) {
         List<String> messages = new LinkedList<>();
 
@@ -72,10 +80,10 @@ public class SendMailExtension {
             final String msg = "mail.failOnMissingAttachment is null but mandatory";
             log.error(msg);
             messages.add(msg);
-        }else{
+        } else {
             if (mail.failOnMissingAttachment) {
-                for(File f : mail.attachments){
-                    if(!f.exists()){
+                for (File f : mail.attachments) {
+                    if (!f.exists()) {
                         final String msg = String.format("mail.attachments file does not exist: '%s'", f);
                         log.error(msg);
                         messages.add(msg);

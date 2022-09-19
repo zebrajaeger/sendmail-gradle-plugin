@@ -1,8 +1,11 @@
-package de.zebrajaeger;
+package de.zebrajaeger.gradleplugin;
 
 import lombok.Data;
 import lombok.ToString;
 
+/**
+ * The mail-server specific part of the plugin configuration
+ */
 @Data
 class SmtpServer {
     public SmtpServer() {
