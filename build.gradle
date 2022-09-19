@@ -1,0 +1,34 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'idea'
+    id "io.freefair.lombok" version "6.5.1"
+}
+
+group = 'de.zebrajaeger'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    implementation 'org.simplejavamail:simple-java-mail:7.5.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    withSourcesJar()
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'sendMail'
+            implementationClass = 'de.zebrajaeger.SendMailPlugin'
+        }
+    }
+}
