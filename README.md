@@ -24,7 +24,7 @@ Also the `mail.from` and `mail.to` needs a replacement:
 
 ```gradle
 plugins {
-    id 'de.zebrajaeger.' version("0.1.1")
+    id 'de.zebrajaeger.sendMail' version("0.1.1")
 }
 
 sendMail {
@@ -62,7 +62,7 @@ The `build.gradle` file is similar to the simple config, except,
 that we provide the credentials via variables instead literals:  
 ```gradle
 plugins {
-    id 'sendMail' version("0.1.1")
+    id 'de.zebrajaeger.sendMail' version("0.1.1")
 }
 
 sendMail {
