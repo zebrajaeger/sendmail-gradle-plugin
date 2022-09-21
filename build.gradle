@@ -2,12 +2,13 @@ plugins {
     id 'java-gradle-plugin'
     id 'maven-publish'
     id 'idea'
+    id 'checkstyle'
     id "io.freefair.lombok" version "6.5.1"
     id 'com.gradle.plugin-publish' version '1.0.0'
 }
 
 group = 'de.zebrajaeger'
-version = '0.1.1'
+version = '0.2.0-SNAPSHOT'
 
 sourceCompatibility = 11
 targetCompatibility = 11
@@ -19,6 +20,10 @@ dependencies {
 
 repositories {
     mavenCentral()
+}
+
+checkstyle {
+    toolVersion '10.3.3';
 }
 
 java {
