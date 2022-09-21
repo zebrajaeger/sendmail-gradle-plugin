@@ -15,6 +15,7 @@ public abstract class SendMailPlugin implements Plugin<Project> {
   public void apply(Project project) {
     final SendMailExtension extension = project.getExtensions().create(ID, SendMailExtension.class);
     final TaskProvider<SendMailTask> task = project.getTasks().register(ID, SendMailTask.class);
-    task.get().dependsOn(extension.getDependsOn().toArray());
+    project.afterEvaluate(p -> task.get().dependsOn(extension.getDependsOn().toArray())
+    );
   }
 }
