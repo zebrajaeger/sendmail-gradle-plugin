@@ -3,12 +3,13 @@ plugins {
     id 'maven-publish'
     id 'idea'
     id 'checkstyle'
+    id "com.github.spotbugs" version "5.0.12"
     id "io.freefair.lombok" version "6.5.1"
     id 'com.gradle.plugin-publish' version '1.0.0'
 }
 
 group = 'de.zebrajaeger'
-version = '0.2.0-SNAPSHOT'
+version = '0.2.1-SNAPSHOT'
 
 sourceCompatibility = 11
 targetCompatibility = 11
@@ -26,6 +27,10 @@ checkstyle {
     toolVersion '10.3.3';
 }
 
+spotbugs {
+    omitVisitors = [ 'FindReturnRef' ]
+}
+
 java {
     withSourcesJar()
 }
@@ -38,7 +43,7 @@ pluginBundle {  // Removed in Gradle 8+
     tags = ['plugin','zebrajaeger']
 
     pluginTags = [
-            sendMail: ['mail', 'smtp']
+            sendMail: ['mail', 'email', 'smtp', 'attachment']
     ]
 }
 
@@ -47,8 +52,8 @@ gradlePlugin {
         sendMail {
             id = 'de.zebrajaeger.sendMail'
             implementationClass = 'de.zebrajaeger.gradleplugin.SendMailPlugin'
-            displayName = 'Send mails from gradle build'
-            description = 'Send mails from gradle build'
+            displayName = 'Send mails from gradle build with attachment(s)'
+            description = 'Send mails from gradle build with attachment(s)'
         }
     }
 }
