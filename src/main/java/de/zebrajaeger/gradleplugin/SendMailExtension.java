@@ -22,16 +22,16 @@ public class SendMailExtension {
 
   private final SmtpServer smtpServer = new SmtpServer();
   private final Mail mail = new Mail();
-  Boolean infoLogging = true;
-  List<String> dependsOn = new LinkedList<>();
+  private Boolean infoLogging = true;
+  private final List<String> dependsOn = new LinkedList<>();
 
   @SuppressWarnings("unused")
-  void smtpServer(Closure<?> config) {
+  public void smtpServer(Closure<?> config) {
     ConfigureUtil.configure(config, smtpServer);
   }
 
   @SuppressWarnings("unused")
-  void mail(Closure<?> config) {
+  public void mail(Closure<?> config) {
     ConfigureUtil.configure(config, mail);
   }
 
@@ -104,13 +104,13 @@ public class SendMailExtension {
       log.error(msg);
       messages.add(msg);
     }
-    if (mail.failOnMissingAttachment == null) {
+    if (mail.getFailOnMissingAttachment() == null) {
       final String msg = "mail.failOnMissingAttachment is null but mandatory";
       log.error(msg);
       messages.add(msg);
     } else {
-      if (mail.failOnMissingAttachment) {
-        for (File f : mail.attachments) {
+      if (mail.getFailOnMissingAttachment()) {
+        for (File f : mail.getAttachments()) {
           if (!f.exists()) {
             final String msg = String.format("mail.attachments file does not exist: '%s'", f);
             log.error(msg);

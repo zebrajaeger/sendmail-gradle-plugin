@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'de.zebrajaeger'
-version = '0.2.1'
+version = '0.2.2'
 
 sourceCompatibility = 11
 targetCompatibility = 11
@@ -22,6 +22,8 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+javadoc.options.addStringOption('Xdoclint:none', '-quiet')
 
 checkstyle {
     toolVersion '10.3.3';

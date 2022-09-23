@@ -12,12 +12,12 @@ class SmtpServer {
   public SmtpServer() {
   }
 
-  String host;
-  Integer port;
-  String user;
+  private String host;
+  private Integer port;
+  private String user;
   @ToString.Exclude
-  String password;
-  Boolean tls = true;
+  private String password;
+  private Boolean tls = true;
 
   @SuppressWarnings("unused")
   public SmtpServer host(String host) {

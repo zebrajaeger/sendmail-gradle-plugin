@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import lombok.Data;
 import org.gradle.api.file.FileSystemLocation;
+import org.gradle.api.tasks.Nested;
 import org.gradle.tooling.exceptions.UnsupportedBuildArgumentException;
 
 /**
@@ -17,12 +18,12 @@ public class Mail {
   public Mail() {
   }
 
-  String from;
-  String to;
-  String subject;
-  String body;
-  List<File> attachments = new LinkedList<>();
-  Boolean failOnMissingAttachment = true;
+  private String from;
+  private String to;
+  private String subject;
+  private String body;
+  private List<File> attachments = new LinkedList<>();
+  private Boolean failOnMissingAttachment = true;
 
   @SuppressWarnings("unused")
   public Mail from(String from) {
